@@ -31,7 +31,7 @@ class Index
         $_SESSION['access_token'] = $access_token;    //save this "access_token" in this file
        
         //post to get agent_ticket back
-        $get_agent_ticket_url="https://qyapi.weixin.qq.com/cgi-bin/ticket/get?access_token=".$access_token."&type=agent_config";//获取应用jsapi_ticket
+        $get_agent_ticket_url="https://qyapi.weixin.qq.com/cgi-bin/ticket/get?access_token=".$access_token."&type=agent_config";//get jsapi_ticket url
         $response1 = file_get_contents($get_agent_ticket_url);
         
         $agent_ticket_data= json_decode($response1, true);
