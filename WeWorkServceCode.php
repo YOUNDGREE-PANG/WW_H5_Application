@@ -73,7 +73,7 @@ class Index
     
     $code=$this->request->post("code");
 
-    $get_access_token_url="https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwc76de3cd7c5ce1be&corpsecret=lBJQwGsr5QAYqkdmmW4DFHB4drUiSh844AO4E0pRVjw";//get access_token again
+    $get_access_token_url="https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwc76de3cd7c5ce1be&corpsecret=YOUR_CORPSECRET";//get access_token again
         $response = file_get_contents($get_access_token_url);
         $access_token_data = json_decode($response, true);
         $access_token = $access_token_data["access_token"];
