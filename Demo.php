@@ -72,16 +72,14 @@ class Index
         
     
     $code=$this->request->post("code");
-   //$insert=db('info_test')->insert(['msg'=>$code]);
+
     $get_access_token_url="https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwc76de3cd7c5ce1be&corpsecret=lBJQwGsr5QAYqkdmmW4DFHB4drUiSh844AO4E0pRVjw";//get access_token again
         $response = file_get_contents($get_access_token_url);
         $access_token_data = json_decode($response, true);
         $access_token = $access_token_data["access_token"];
     
     $url="https://qyapi.weixin.qq.com/cgi-bin/auth/getuserinfo?access_token=".$access_token."&code=".$code;
-       //return $code;
     $res = file_get_contents($url);
-    //$insert=db('info_test')->insert(['msg'=>$res]);
     $user_id_data = json_decode($res, true);
     
   
@@ -89,9 +87,6 @@ class Index
     if($user_id_data["userid"]){//if got ww_userid successfully
     
     $jsonData1=json_encode($user_id_data,true);
-
-
-    
     $user_id=$user_id_data["userid"];
     $url2="https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=".$access_token."&userid=".$user_id;  
     $res2 = file_get_contents($url2);
